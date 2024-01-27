@@ -37,6 +37,23 @@ def dqr(data):
     return
     cols.join(dtyp).join(misval).join(presval).join(unival).join(minval).join(maxval)
 
+#%% Obtaining the data quality report
+report = dqr(data)
+#%% View one of the variables
+fig = plt.figure(figsize=(10,5))
+plt.scatter(data.ID,data.Refractive_index)
+plt.xlabel('ID'),plt.ylabel('Refractive index')
+plt.grid()
+plt.show()
+# fig.savefig('../figures/P1_fig/F1.png')
+#%% View one of the variables
+fig = plt.figure(figsize=(5,4))
+plt.scatter(data.ID,data.Na)
+plt.xlabel('ID'),plt.ylabel('Sodio (Na)')
+plt.grid()
+plt.show()
+# fig.savefig('../figures/P1_fig/F2.png')
+
 
 #%% SCALING OF VARIABLES BY NORMALIZATION
 data['Refractive_index_scale'] = (data.Refractive_index-
