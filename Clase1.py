@@ -36,3 +36,12 @@ def dqr(data):
     # Join the tables and return the result
     return
     cols.join(dtyp).join(misval).join(presval).join(unival).join(minval).join(maxval)
+
+
+#%% SCALING OF VARIABLES BY NORMALIZATION
+data['Refractive_index_scale'] = (data.Refractive_index-
+data.Refractive_index.mean())/data.Refractive_index.std()
+data['Na_scale'] = (data.Na-data.Na.mean())/data.Na.std()
+### Scaling through scikit-learn
+#from sklearn import preprocessing
+#data['Refractive_index_scale'] = preprocessing.scale(data.Refractive_index)
